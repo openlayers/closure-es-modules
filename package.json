@@ -1,0 +1,20 @@
+{
+  "name": "closure-es-modules",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Testing the Closure Compiler with ES modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint build.js src",
+    "build": "node build.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-tschaub": "^7.0.0",
+    "google-closure-compiler": "^20170521.0.0"
+  },
+  "eslintConfig": {
+    "extends": "tschaub"
+  }
+}
