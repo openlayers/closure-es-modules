@@ -15,6 +15,9 @@
     "google-closure-compiler": "^20170521.0.0"
   },
   "eslintConfig": {
-    "extends": "openlayers"
+    "extends": "openlayers",
+    "env": {
+      "es6": true
+    }
   }
 }
