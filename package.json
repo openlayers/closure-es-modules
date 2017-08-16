@@ -10,11 +10,11 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-tschaub": "^7.0.0",
+    "eslint": "^4.4.1",
+    "eslint-config-openlayers": "^7.0.0",
     "google-closure-compiler": "^20170521.0.0"
   },
   "eslintConfig": {
-    "extends": "tschaub"
+    "extends": "openlayers"
   }
 }
