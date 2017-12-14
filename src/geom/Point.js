@@ -1,9 +1,10 @@
 /**
  * Point geometry.
  * @constructor
- * @param {../typedefs.coordinate} coord Coordinates.
+ * @param {../../externs/types.PointOptions} options Constructor options.
  */
-export default function Point(coord) {
+export default function Point(options) {
+  const coord = options.coordinates;
 
   /**
    * @private
@@ -19,7 +20,7 @@ export default function Point(coord) {
 }
 
 /**
- * @return {../typedefs.coordinate} Coordinates.
+ * @return {../types.Coordinate} Coordinates.
  */
 Point.prototype.getCoordinates = function() {
   return [this._x, this._y];

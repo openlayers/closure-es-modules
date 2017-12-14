@@ -5,7 +5,9 @@
   "description": "Testing the Closure Compiler with ES modules",
   "main": "index.js",
   "scripts": {
-    "test": "eslint build.js src",
+    "lint": "eslint build.js src externs",
+    "pretest": "npm run lint",
+    "test": "npm run build",
     "build": "node build.js",
     "webpack": "webpack"
   },
