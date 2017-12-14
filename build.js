@@ -1,7 +1,7 @@
 const Compiler = require('google-closure-compiler').compiler;
 
 const compiler = new Compiler({
-  js: ['./src/**.js', './externs/**.js'],
+  js: './src/**.js',
   entry_point: './src/index',
   module_resolution: 'NODE',
   compilation_level: 'ADVANCED',
