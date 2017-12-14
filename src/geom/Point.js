@@ -1,7 +1,7 @@
 /**
  * Point geometry.
  * @constructor
- * @param {../../externs/types.PointOptions} options Constructor options.
+ * @param {../types.Coordinate} options.coordinates The point coordinates.
  */
 export default function Point(options) {
   const coord = options.coordinates;
