@@ -1,4 +1,8 @@
 /**
+ * @module math
+ */
+
+/**
  * Add two numbers together.
  * @param {number} a The first number.
  * @param {number} b The second number.

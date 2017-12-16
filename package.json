@@ -9,13 +9,15 @@
     "pretest": "npm run lint",
     "test": "npm run build",
     "build": "node build.js",
+    "jsdoc": "jsdoc -r src/",
     "webpack": "webpack"
   },
   "license": "ISC",
   "devDependencies": {
     "eslint": "^4.13.1",
     "eslint-config-openlayers": "^7.0.0",
-    "google-closure-compiler": "^20171203.0.0"
+    "google-closure-compiler": "^20171203.0.0",
+    "jsdoc": "^3.5.5"
   },
   "eslintConfig": {
     "extends": "openlayers",

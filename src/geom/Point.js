@@ -1,5 +1,6 @@
 /**
  * @typedef {{coordinates: ../types.Coordinate}}
+ * @property {../types.Coordinate} coordinates Coordinates.
  */
 export let PointOptions;
 
@@ -10,7 +11,7 @@ export let PointOptions;
  * @param {PointOptions} options Constructor options.
  * @param {../types.Coordinate} options.coordinates The point coordinates.
  */
-export default function Point(options) {
+function Point(options) {
   const coord = options.coordinates;
 
   /**
@@ -32,3 +33,5 @@ export default function Point(options) {
 Point.prototype.getCoordinates = function() {
   return [this._x, this._y];
 };
+
+export default Point;
