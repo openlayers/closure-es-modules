@@ -1,4 +1,8 @@
 /**
+ * @module geom/Point
+ */
+
+/**
  * @typedef {{coordinates: ../types.Coordinate}}
  * @property {../types.Coordinate} coordinates Coordinates.
  */
