@@ -1,8 +1,14 @@
-import {add, dist2d} from './math';
+import * as math from './math';
 import Point from './geom/Point';
 
-console.log(add(40, 2)); // eslint-disable-line
+window.goog = {
+  exportSymbol: function(p, o, e) {},
+  exportProperty: function(o, p, s) {}
+};
 
-const p1 = new Point({coordinates: [0, 42]});
-const p2 = new Point({coordinates: [42, 0]});
-console.log(dist2d(p1, p2)); // eslint-disable-line
+const lib = window['lib'] = {};
+lib['Point'] = Point;
+Point.prototype['getCoordinates'] = Point.prototype.getCoordinates;
+lib['math'] = math;
+math['add'] = math.add;
+math['dist2d'] = math.dist2d;

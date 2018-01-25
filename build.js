@@ -5,7 +5,9 @@ const compiler = new Compiler({
   entry_point: './src/index',
   module_resolution: 'NODE',
   compilation_level: 'ADVANCED',
-  new_type_inf: true
+  new_type_inf: true,
+  generate_exports: true,
+  export_local_property_definitions: true
 });
 
 compiler.run((exit, out, err) => {

@@ -9,7 +9,7 @@
     "pretest": "npm run lint",
     "test": "npm run build",
     "build": "node build.js",
-    "jsdoc": "jsdoc -r src/",
+    "jsdoc": "jsdoc -m src/ --package package.json -r src/",
     "webpack": "webpack"
   },
   "license": "ISC",
@@ -17,7 +17,7 @@
     "eslint": "^4.13.1",
     "eslint-config-openlayers": "^7.0.0",
     "google-closure-compiler": "^20171203.0.0",
-    "jsdoc": "^3.5.5"
+    "jsdoc": "git://github.com/ahocevar/jsdoc.git#closure-path-types"
   },
   "eslintConfig": {
     "extends": "openlayers",

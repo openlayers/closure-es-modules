@@ -4,6 +4,7 @@
 
 /**
  * Add two numbers together.
+ * @export
  * @param {number} a The first number.
  * @param {number} b The second number.
  * @return {number} The sum.
@@ -14,7 +15,8 @@ export function add(a, b) {
 
 /**
  * Calculate the distance between two points.
- * @param {!../geom/Point} p1 The first point.
+ * @export
+ * @param {!../geom/Point|Array<../geom/Point>} p1 The first point.
  * @param {!../geom/Point} p2 The second point.
  * @return {number} The sum.
  */

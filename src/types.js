@@ -2,7 +2,9 @@
  * @module types
  */
 
-/** @typedef {Array<number>} */
+/**
+ * @typedef {Array<number>}
+ */
 export let Coordinate;
 
 /**
