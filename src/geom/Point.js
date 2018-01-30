@@ -2,21 +2,20 @@
  * @module geom/Point
  */
 
+import {Coordinate} from '../types';
+
 /**
- * @access private
- * @typedef {{coordinates: ../types.Coordinate}}
+ * @typedef {{coordinates: Coordinate}}
  */
 export let PointOptions;
 
-
 /**
  * Point geometry.
- * @export
  * @constructor
  * @param {PointOptions} options Constructor options.
- * @param {../types.Coordinate} options.coordinates The point coordinates.
+ * @param {Coordinate} options.coordinates Coordinates.
  */
-export default function Point(options) {
+const Point = function(options) {
   const coord = options.coordinates;
 
   /**
@@ -32,16 +31,16 @@ export default function Point(options) {
   this._y = coord[1];
 
   /**
-   * @export
-   * @type {../types.Coordinate}
+   * @type {Coordinate}
    */
   this.coord = coord;
-}
+};
 
 /**
- * @export
- * @return {../types.Coordinate} Coordinates.
+ * @return {Coordinate} Coordinates.
  */
 Point.prototype.getCoordinates = function() {
   return [this._x, this._y];
 };
+
+export default Point;

@@ -2,9 +2,10 @@
  * @module math
  */
 
+import Point from '../geom/Point';
+
 /**
  * Add two numbers together.
- * @export
  * @param {number} a The first number.
  * @param {number} b The second number.
  * @return {number} The sum.
@@ -15,9 +16,8 @@ export function add(a, b) {
 
 /**
  * Calculate the distance between two points.
- * @export
- * @param {!../geom/Point|Array<../geom/Point>} p1 The first point.
- * @param {!../geom/Point} p2 The second point.
+ * @param {!Point} p1 The first point.
+ * @param {!Point} p2 The second point.
  * @return {number} The sum.
  */
 export function dist2d(p1, p2) {
