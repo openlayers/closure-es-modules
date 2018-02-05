@@ -2,21 +2,40 @@
  * @module geom/Point
  */
 
-import {Coordinate} from '../types';
+import {Source} from '../types';
+import rbush from 'rbush';
 
 /**
- * @typedef {{coordinates: Coordinate}}
+ * @typedef {{
+ *   coordinates: module:types.Coordinate,
+ *   attributes: (module:types.Attributes|undefined)
+ * }}
  */
 export let PointOptions;
+
+/** @type {?} */
+const tree = rbush();
 
 /**
  * Point geometry.
  * @constructor
  * @param {PointOptions} options Constructor options.
- * @param {Coordinate} options.coordinates Coordinates.
+ * @param {module:types.Coordinate} options.coordinates Coordinates.
  */
 const Point = function(options) {
   const coord = options.coordinates;
+
+  const attributes = /** @type {module:types.Attributes} */ (Object.assign({}, options.attributes || {}));
+
+  if (attributes.source == undefined) {
+    attributes.source = Source.UNKNOWN;
+  }
+
+  /**
+   * @private
+   * @type {module:types.Attributes}
+   */
+  this._attributes = attributes;
 
   /**
    * @private
@@ -31,16 +50,38 @@ const Point = function(options) {
   this._y = coord[1];
 
   /**
-   * @type {Coordinate}
+   * @type {module:types.Coordinate}
    */
   this.coord = coord;
+
+  (
+    /**
+     * @suppress {missingProperties}
+     */
+    () => {
+      tree.insert({
+        minX: this._x,
+        maxX: this._y,
+        minY: this._x,
+        maxY: this._y,
+        attributes: attributes
+      });
+    }
+  )();
 };
 
 /**
- * @return {Coordinate} Coordinates.
+ * @return {module:types.Attributes} Source.
+ */
+Point.prototype.getAttributes = function() {
+  return this._attributes;
+};
+
+/**
+ * @return {module:types.Coordinate} Coordinates.
  */
 Point.prototype.getCoordinates = function() {
-  return [this._x, this._y];
+  return [this.coord[0], this.coord[1]];
 };
 
 export default Point;

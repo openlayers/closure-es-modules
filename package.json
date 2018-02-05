@@ -3,15 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "description": "Testing the Closure Compiler with ES modules",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint build.js src",
     "pretest": "npm run lint",
-    "test": "npm run build",
+    "test": "npm run webpack && npm run build",
     "build": "node build.js",
-    "jsdoc": "jsdoc --package package.json -r src/",
-    "webpack": "webpack",
-    "typecheck": "npm run build && npm run webpack"
+    "jsdoc": "jsdoc -r src/",
+    "webpack": "webpack"
   },
   "license": "ISC",
   "devDependencies": {
@@ -19,7 +18,11 @@
     "eslint-config-openlayers": "^7.0.0",
     "google-closure-compiler": "^20171203.0.0",
     "jsdoc": "^3.5.5",
-    "webpack": "^3.10.0"
+    "rbush": "^2.0.2",
+    "webpack": "^3.10.0",
+    "webpack-closure-compiler": "^2.1.6",
+    "webpack-closure-suppress-loader": "git://github.com/openlayers/webpack-closure-suppress-loader.git",
+    "webpack-jsdoc-closure-loader": "git://github.com/openlayers/webpack-jsdoc-closure-loader.git"
   },
   "eslintConfig": {
     "extends": "openlayers",

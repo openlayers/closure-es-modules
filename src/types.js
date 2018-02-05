@@ -8,7 +8,20 @@
 export let Coordinate;
 
 /**
- * @typedef {{time: string}}
+ * @typedef {{
+ *   time: string,
+ *   source: module:types.Source
+ * }}
+ *
  * @property {string} time Time.
  */
-export let FrameState;
+export let Attributes;
+
+/**
+ * @enum {number}
+ */
+export const Source = {
+  UNKNOWN: 0,
+  GPS: 1,
+  MANUAL: 2
+};

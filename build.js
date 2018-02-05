@@ -1,13 +1,9 @@
 const Compiler = require('google-closure-compiler').compiler;
 
 const compiler = new Compiler({
-  js: ['bundle.js', 'src/*.js'],
-  entry_point: 'bundle.js',
-  module_resolution: 'NODE',
-  compilation_level: 'ADVANCED',
-  dependency_mode: 'STRICT',
-  new_type_inf: true,
-  checks_only: true
+  js: 'bundle.js',
+  checks_only: true,
+  jscomp_error: ['newCheckTypes']
 });
 
 compiler.run((exit, out, err) => {
