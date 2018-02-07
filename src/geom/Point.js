@@ -14,7 +14,7 @@ import rbush from 'rbush';
 export let PointOptions;
 
 /** @type {?} */
-const tree = rbush();
+const tree = rbush(undefined, undefined);
 
 /**
  * Point geometry.
