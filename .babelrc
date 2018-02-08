@@ -1,9 +1,9 @@
 {
   "plugins": ["jsdoc-closure"],
   "parserOpts": {
-    //"parser": "recast"
+    "parser": "recast"
   },
   "generatorOpts": {
-    //"generator": "recast"
+    "generator": "recast"
   }
 }
