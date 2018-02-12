@@ -10,6 +10,8 @@ import rbush from 'rbush';
  *   coordinates: module:types.Coordinate,
  *   attributes: (module:types.Attributes|undefined)
  * }}
+ * @property {module:types.Coordinate} coordinates Coordinates.
+ * @property {module:types.Attributes=} attributes Attributes.
  */
 export let PointOptions;
 
@@ -20,7 +22,6 @@ const tree = rbush(undefined, undefined);
  * Point geometry.
  * @constructor
  * @param {PointOptions} options Constructor options.
- * @param {module:types.Coordinate} options.coordinates Coordinates.
  */
 const Point = function(options) {
   const coord = options.coordinates;
