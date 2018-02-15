@@ -6,14 +6,10 @@ import {Source} from '../types';
 import rbush from 'rbush';
 
 /**
- * @typedef {{
- *   coordinates: module:types.Coordinate,
- *   attributes: (module:types.Attributes|undefined)
- * }}
+ * @typedef {Object} PointOptions
  * @property {module:types.Coordinate} coordinates Coordinates.
- * @property {module:types.Attributes=} attributes Attributes.
+ * @property {module:types.Attributes|undefined} attributes Attributes.
  */
-export let PointOptions;
 
 /** @type {?} */
 const tree = rbush(undefined, undefined);

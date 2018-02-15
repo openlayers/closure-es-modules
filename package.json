@@ -16,7 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-jsdoc-closure": "git://github.com/openlayers/babel-plugin-jsdoc-closure.git",
+    "babel-plugin-jsdoc-closure": "1.1.0",
     "eslint": "^4.13.1",
     "eslint-config-openlayers": "^7.0.0",
     "google-closure-compiler": "^20171203.0.0",

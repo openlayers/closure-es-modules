@@ -3,19 +3,14 @@
  */
 
 /**
- * @typedef {Array<number>}
+ * @typedef {Array<number>} Coordinate
  */
-export let Coordinate;
 
 /**
- * @typedef {{
- *   time: string,
- *   source: module:types.Source
- * }}
- *
+ * @typedef {Object} Attributes
  * @property {string} time Time.
+ * @property {module:types.Source} source Source.
  */
-export let Attributes;
 
 /**
  * @enum {number}
