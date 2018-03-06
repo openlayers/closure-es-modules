@@ -32,10 +32,6 @@ exports.handlers = {
           const param = params[j];
           if (param.type && param.type.names) {
             let type = param.type.names[0];
-            // Add module namepath to locally defined types
-            if (type.indexOf('module:') == -1) {
-              type = `${doclet.memberof}.${type}`;
-            }
             if (type in properties) {
               param.type.names[0] = type;
               params.push.apply(params, properties[type].map(p => {

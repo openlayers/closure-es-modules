@@ -9,14 +9,16 @@
 /**
  * @typedef {Object} Attributes
  * @property {string} time Time.
- * @property {module:types.Source} source Source.
+ * @property {module:types~Source} source Source.
  */
 
 /**
  * @enum {number}
+ * @readonly
  */
-export const Source = {
+const Source = {
   UNKNOWN: 0,
   GPS: 1,
   MANUAL: 2
 };
+export {Source};

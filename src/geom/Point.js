@@ -7,22 +7,25 @@ import rbush from 'rbush';
 
 /**
  * @typedef {Object} PointOptions
- * @property {module:types.Coordinate} coordinates Coordinates.
- * @property {module:types.Attributes|undefined} attributes Attributes.
+ * @property {module:types~Coordinate} coordinates Coordinates.
+ * @property {module:types~Attributes|undefined} attributes Attributes.
  */
 
-/** @type {?} */
+/**
+ * @type {?}
+ * @private
+ */
 const tree = rbush(undefined, undefined);
 
 /**
  * Point geometry.
  * @constructor
- * @param {PointOptions} options Constructor options.
+ * @param {module:geom/Point~PointOptions} options Constructor options.
  */
 const Point = function(options) {
   const coord = options.coordinates;
 
-  const attributes = /** @type {module:types.Attributes} */ (Object.assign({}, options.attributes || {}));
+  const attributes = /** @type {module:types~Attributes} */ (Object.assign({}, options.attributes || {}));
 
   if (attributes.source == undefined) {
     attributes.source = Source.UNKNOWN;
@@ -30,7 +33,7 @@ const Point = function(options) {
 
   /**
    * @private
-   * @type {module:types.Attributes}
+   * @type {module:types~Attributes}
    */
   this._attributes = attributes;
 
@@ -47,7 +50,7 @@ const Point = function(options) {
   this._y = coord[1];
 
   /**
-   * @type {module:types.Coordinate}
+   * @type {module:types~Coordinate}
    */
   this.coord = coord;
 
@@ -68,14 +71,14 @@ const Point = function(options) {
 };
 
 /**
- * @return {module:types.Attributes} Source.
+ * @return {module:types~Attributes} Source.
  */
 Point.prototype.getAttributes = function() {
   return this._attributes;
 };
 
 /**
- * @return {module:types.Coordinate} Coordinates.
+ * @return {module:types~Coordinate} Coordinates.
  */
 Point.prototype.getCoordinates = function() {
   return [this.coord[0], this.coord[1]];
