@@ -14,12 +14,12 @@ export function add(a, b) {
 
 /**
  * Calculate the distance between two points.
- * @param {!module:geom/Point~Point} p1 The first point.
- * @param {!module:geom/Point~Point} p2 The second point.
+ * @param {!module:geom/Point} p1 The first point.
+ * @param {!module:geom/Point} p2 The second point.
  * @return {number} The sum.
  */
 export function dist2d(p1, p2) {
-  const a = p1.getCoordinates();
+  const a = /** @type {Array.<number>} */ (p1.getCoordinates());
   const b = p2.getCoordinates();
   return Math.sqrt(add(
     Math.pow(b[0] - a[0], 2),
