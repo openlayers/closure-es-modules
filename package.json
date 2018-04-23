@@ -16,13 +16,13 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-jsdoc-closure": "1.3.0",
+    "babel-plugin-jsdoc-closure": "1.3.2",
     "eslint": "^4.13.1",
     "eslint-config-openlayers": "^7.0.0",
-    "google-closure-compiler": "^20171203.0.0",
+    "google-closure-compiler": "^20180402.0.0",
     "jsdoc": "^3.5.5",
     "rbush": "^2.0.2",
-    "recast": "^0.13.0",
+    "recast": "^0.14.7",
     "webpack": "^3.10.0",
     "webpack-closure-compiler": "^2.1.6",
     "webpack-closure-suppress-loader": "git://github.com/openlayers/webpack-closure-suppress-loader.git"
