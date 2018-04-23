@@ -3,6 +3,7 @@
  */
 
 import {Source} from '../types';
+import Geometry from './Geometry';
 import rbush from 'rbush';
 
 /**
@@ -20,10 +21,12 @@ const tree = rbush(undefined, undefined);
 /**
  * Point geometry.
  * @constructor
+ * @extends {module:geom/Geometry~Geometry}
  * @param {module:geom/Point~PointOptions} options Constructor options.
  */
 const Point = function(options) {
   const coord = options.coordinates;
+  Geometry.call(this, coord);
 
   const attributes = /** @type {module:types~Attributes} */ (Object.assign({}, options.attributes || {}));
 
@@ -49,11 +52,6 @@ const Point = function(options) {
    */
   this._y = coord[1];
 
-  /**
-   * @type {module:types~Coordinate}
-   */
-  this.coord = coord;
-
   (
     /**
      * @suppress {missingProperties}
@@ -69,6 +67,9 @@ const Point = function(options) {
     }
   )();
 };
+
+Point.prototype = Object.create(Geometry.prototype);
+Point.prototype.constructor = Point;
 
 /**
  * @return {module:types~Attributes} Source.
