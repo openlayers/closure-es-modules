@@ -1,6 +1,0 @@
-{
-    "plugins": [
-      "jsdoc-inline-options",
-      "jsdoc-default-export"
-    ]
-}

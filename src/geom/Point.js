@@ -1,88 +1,83 @@
-/**
- * @module geom/Point
- */
-
 import {Source} from '../types';
 import Geometry from './Geometry';
 import rbush from 'rbush';
 
 /**
- * @typedef {Object} PointOptions
- * @property {module:types~Coordinate} coordinates Coordinates.
- * @property {module:types~Attributes|undefined} attributes Attributes.
+ * @typedef {{attributes: import("../types").Attributes, coordinates: import("../types").Coordinate}} PointOptions
  */
 
 /**
- * @type {?}
+ * @type {*}
  * @private
  */
-const tree = rbush(undefined, undefined);
+const tree = rbush();
 
-/**
- * Point geometry.
- * @constructor
- * @extends {module:geom/Geometry~Geometry}
- * @param {module:geom/Point~PointOptions} options Constructor options.
- */
-const Point = function(options) {
-  const coord = options.coordinates;
-  Geometry.call(this, coord);
+class Point extends Geometry {
 
-  const attributes = /** @type {module:types~Attributes} */ (Object.assign({}, options.attributes || {}));
+  /**
+   * Point geometry.
+   * @param {Object} options
+   * @param {import("../types").Coordinate} options.coordinates Coordinates of the point.
+   * @param {import("../types").Attributes} options.attributes Attributes describing the point.
+   */
+  constructor({coordinates, attributes}) {
+    super(coordinates);
 
-  if (attributes.source == undefined) {
-    attributes.source = Source.UNKNOWN;
+    /** @type {import("../types").Attributes} */
+    attributes = attributes || /** @type {import("../types").Attributes} */ ({});
+
+    if (attributes.source == undefined) {
+      attributes.source = Source.UNKNOWN;
+    }
+
+    /**
+     * @private
+     * @type {import("../types").Attributes}
+     */
+    this._attributes = attributes;
+
+    /**
+     * @private
+     * @type {number}
+     */
+    this._x = coordinates[0];
+
+    /**
+     * @private
+     * @type {number}
+     */
+    this._y = coordinates[1];
+
+    tree.insert({
+      minX: this._x,
+      maxX: this._y,
+      minY: this._x,
+      maxY: this._y,
+      attributes: attributes
+    });
   }
 
   /**
-   * @private
-   * @type {module:types~Attributes}
+   * @return {import("../types").Source} Source.
    */
-  this._attributes = attributes;
+  getSource() {
+    return this._attributes.source;
+  }
 
   /**
-   * @private
-   * @type {number}
+   * @return {import("../types").Attributes} Attributes.
    */
-  this._x = coord[0];
+  getAttributes() {
+    return this._attributes;
+  }
 
   /**
-   * @private
-   * @type {number}
+   * @return {import("../types").Coordinate} Coordinates.
    */
-  this._y = coord[1];
+  getCoordinates() {
+    return this.coord;
+  }
 
-  (
-    /**
-     * @suppress {missingProperties}
-     */
-    () => {
-      tree.insert({
-        minX: this._x,
-        maxX: this._y,
-        minY: this._x,
-        maxY: this._y,
-        attributes: attributes
-      });
-    }
-  )();
-};
-
-Point.prototype = Object.create(Geometry.prototype);
-Point.prototype.constructor = Point;
-
-/**
- * @return {module:types~Attributes} Source.
- */
-Point.prototype.getAttributes = function() {
-  return this._attributes;
-};
-
-/**
- * @return {module:types~Coordinate} Coordinates.
- */
-Point.prototype.getCoordinates = function() {
-  return [this.coord[0], this.coord[1]];
-};
+}
 
 export default Point;

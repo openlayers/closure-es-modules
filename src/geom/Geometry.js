@@ -1,24 +1,20 @@
-/**
- * @module geom/Geometry
- */
+class Geometry {
 
-/**
- * Point geometry.
- * @constructor
- * @param {module:types~Coordinate} coordinates Coordinates.
- */
-const Geometry = function(coordinates) {
   /**
-   * @type {module:types~Coordinate}
+   * Point geometry.
+   * @param {import("../types").Coordinate} coordinates Coordinates.
    */
-  this.coord = coordinates;
-};
+  constructor(coordinates) {
+    /**
+     * @type {import("../types").Coordinate}
+     */
+    this.coord = coordinates;
+  }
 
-/**
- * @return {module:types~Coordinate} Coordinates.
- */
-Geometry.prototype.getCoordinates = function() {
-  return [this.coord[0], this.coord[1]];
-};
+  getCoordinates() {
+    return [this.coord[0], this.coord[1]];
+  }
+
+}
 
 export default Geometry;

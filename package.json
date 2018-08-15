@@ -7,31 +7,32 @@
   "scripts": {
     "lint": "eslint build.js src",
     "pretest": "npm run lint",
-    "test": "npm run transpile-closure && npm run build",
+    "test": "npx tsc --pretty",
     "build": "node build.js",
-    "jsdoc": "jsdoc -r src/ -c jsdoc-conf.json",
+    "api": "typedoc --tsconfig tsconfig.json --out apidoc",
     "transpile-closure": "babel --out-dir typecheck src",
     "webpack": "webpack"
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-jsdoc-closure": "1.4.0",
-    "eslint": "^4.13.1",
-    "eslint-config-openlayers": "^7.0.0",
-    "google-closure-compiler": "^20180402.0.0",
-    "jsdoc": "^3.5.5",
+    "eslint": "^4.19.1",
+    "eslint-config-openlayers": "^11.0.0",
     "rbush": "^2.0.2",
-    "recast": "^0.14.7",
-    "webpack": "^3.10.0",
-    "webpack-closure-compiler": "^2.1.6",
-    "webpack-closure-suppress-loader": "git://github.com/openlayers/webpack-closure-suppress-loader.git"
+    "tslib": "^1.9.3",
+    "typedoc": "git://github.com/ahocevar/typedoc#typescript-3.1.x",
+    "typescript": "^3.1.0-dev.20180813",
+    "webpack": "^3.12.0"
   },
   "eslintConfig": {
     "extends": "openlayers",
     "env": {
       "es6": true
+    },
+    "rules": {
+      "valid-jsdoc": 0
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/rbush": "^2.0.2"
+  }
 }

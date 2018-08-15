@@ -1,4 +1,4 @@
 /node_modules/
-/out/
+/apidoc/
 /bundle.js*
-/typecheck/
+
