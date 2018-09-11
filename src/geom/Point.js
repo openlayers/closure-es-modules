@@ -3,12 +3,15 @@ import Geometry from './Geometry';
 import rbush from 'rbush';
 
 /**
- * @typedef {{attributes: import("../types").Attributes, coordinates: import("../types").Coordinate}} PointOptions
+ * @typedef {Object} PointOptions
+ * @property {import("../types").Coordinate} coordinates Coordinates of the point.
+ * @property {import("../types").Attributes} attributes Attributes describing the point.
  */
 
 /**
  * @type {*}
  * @private
+ * @hidden
  */
 const tree = rbush();
 
@@ -16,15 +19,15 @@ class Point extends Geometry {
 
   /**
    * Point geometry.
-   * @param {Object} options
-   * @param {import("../types").Coordinate} options.coordinates Coordinates of the point.
-   * @param {import("../types").Attributes} options.attributes Attributes describing the point.
+   * @param {PointOptions=} options
    */
-  constructor({coordinates, attributes}) {
+  constructor(options) {
+    options = options || /** @type {PointOptions} */ ({});
+    const coordinates = options.coordinates;
     super(coordinates);
 
     /** @type {import("../types").Attributes} */
-    attributes = attributes || /** @type {import("../types").Attributes} */ ({});
+    const attributes = options.attributes || /** @type {import("../types").Attributes} */ ({});
 
     if (attributes.source == undefined) {
       attributes.source = Source.UNKNOWN;

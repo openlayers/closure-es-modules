@@ -18,9 +18,7 @@
     "eslint": "^4.19.1",
     "eslint-config-openlayers": "^11.0.0",
     "rbush": "^2.0.2",
-    "tslib": "^1.9.3",
-    "typedoc": "git://github.com/ahocevar/typedoc#typescript-3.1.x",
-    "typescript": "^3.1.0-dev.20180813",
+    "typescript": "^3.1.0-dev.20180823",
     "webpack": "^3.12.0"
   },
   "eslintConfig": {

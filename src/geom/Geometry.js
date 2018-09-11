@@ -11,6 +11,9 @@ class Geometry {
     this.coord = coordinates;
   }
 
+  /**
+   * @return {import("../types").Coordinate} Coordinates.
+   */
   getCoordinates() {
     return [this.coord[0], this.coord[1]];
   }
