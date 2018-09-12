@@ -11,7 +11,7 @@ export function add(a, b) {
 /**
  * Calculate the distance between two points.
  * @param {!import("../geom/Point").default|Array<number>} p1 The first point.
- * @param {!import("../geom/Point").default|Array<number>} p2 The second point.
+ * @param {!import("../types").PointLike} p2 The second point.
  * @return {number} The sum.
  */
 export function dist2d(p1, p2) {

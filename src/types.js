@@ -4,6 +4,11 @@
  */
 
 /**
+ * @typedef {import("./geom/Point.js").default|Array<number>} PointLike
+ * A point as {@link geom/Point} or `[lon, lat]` array.
+ */
+
+/**
  * Source of the geometry.
  * @enum {number}
  */
